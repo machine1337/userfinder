@@ -1,9 +1,11 @@
 import requests
 import os
 import platform
+
 print("[*] Checking Required Packages: - \n")
 print("[*] Checking Requirements Module")
-if platform.system().startswith("Linux"):
+
+if platform.system().startswith("Linux") or platform.system().find("BSD") > 0 :
     try:
         import requests
     except ImportError:
@@ -37,6 +39,7 @@ if platform.system().startswith("Linux"):
     except:
         os.system("python3 -m pip install pyuseragents -q -q -q")
         import pyuseragents as pyuseragents
+
 
 
 elif platform.system().startswith("Windows"):
@@ -76,7 +79,7 @@ banner = Center.XCenter("""
  | || | | \___ \ |_ \| |_) |____| |_  | |  \| | | | |  _| | |_) | |
 < < | |_| |___) |__) |  _ <_____|  _| | | |\  | |_| | |___|  _ < > >
  | | \___/|____/____/|_| \_\    |_|   |_|_| \_|____/|_____|_| \_\ |
-  \_\                                                          /_/          
+  \_\                                                          /_/
                             \n\n
 """)
 
@@ -122,7 +125,7 @@ def blogspot(target):
         print(f" {ylw}[ {red}✖{ylw} ] {red}Blogspot Not Found")
 
     else:
-        print(f" {ylw}[ {grn}✔{ylw} ] {grn}Twitter Found: {url}")
+        print(f" {ylw}[ {grn}✔{ylw} ] {grn}Blogspot Found: {url}")
 def twitter(target):
     inp = {"input": target}
     header = {"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -192,7 +195,7 @@ def vimeo(target):
         print(f" {ylw}[ {red}✖{ylw} ] {red}Vimeo Not Found")
 
     else:
-        print(f" {ylw}[ {grn}✔{ylw} ] {grn}Pinterest Found: {url}")
+        print(f" {ylw}[ {grn}✔{ylw} ] {grn}Vimeo Found: {url}")
 
 def med(target):
     url = f"https://medium.com/@{target}"
@@ -398,4 +401,3 @@ def catc():
         quit()
 
 catc()
-
